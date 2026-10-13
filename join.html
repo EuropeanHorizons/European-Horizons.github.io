@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Guide | European Horizons Virtual Airline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --livery-blue: #081123;
+            --livery-gold: #c59b27;
+            --livery-gold-hover: #dcb33f;
+            --bg: #03060f;
+            --card-bg: rgba(8, 17, 35, 0.88);
+            --border: rgba(197, 155, 39, 0.3);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(8, 17, 35, 0.9) 0%, transparent 65%),
+                radial-gradient(circle at 85% 90%, rgba(197, 155, 39, 0.05) 0%, transparent 50%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .navbar {
+            background: rgba(8, 17, 35, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--livery-gold); object-fit: cover; }
+        .nav-links { list-style: none; display: flex; gap: 15px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 6px; transition: all 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--livery-gold); background: rgba(197, 155, 39, 0.1); }
+
+        header { padding: 0 0 1.5rem 0; text-align: center; width: 100%; }
+        .header-banner { width: 100%; max-height: 280px; object-fit: cover; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+
+        main { width: 92%; max-width: 1200px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        h1 { color: var(--livery-gold); font-size: 2.2rem; margin-bottom: 1.5rem; }
+        h2 { color: var(--text); font-size: 1.3rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.05rem; }
+
+        ol {
+            color: var(--text-muted);
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ol li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        a { color: var(--livery-gold); text-decoration: underline; }
+
+        footer {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            background: rgba(3, 6, 15, 0.98);
+            border-top: 1px solid rgba(197, 155, 39, 0.2);
+            margin-top: auto;
+        }
+        .vatsim-section { margin-bottom: 1.5rem; }
+        .vatsim-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; display: block; }
+        .vatsim-badge img { height: 45px; width: auto; opacity: 0.95; }
+        .footer-links { font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; }
+        .footer-links a { color: var(--livery-gold); text-decoration: underline; margin: 0 12px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="ChatGPT Image 17. Sept. 2026, 14_11_25.png" alt="EHZ Logo">
+                <span>European Horizons</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="fleet.html">Flotte & Liveries</a></li>
+                <li><a href="join.html" class="active">Pilot Guide</a></li>
+                <li><a href="https://newsky.app/airline/ehz/info" target="_blank">NewSky</a></li>
+                <li><a href="https://discord.gg/ZUcU548fGs" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <img src="WebsiteBanner.png" alt="European Horizons Banner" class="header-banner">
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>Pilot Guide – Werde Teil von EHZ</h1>
+            <p>
+                Du möchtest dem Cockpit von European Horizons beitreten? Der Einstieg ist unkompliziert und in wenigen Schritten erledigt:
+            </p>
+
+            <ol>
+                <li><strong>VATSIM-Konto:</strong> Stelle sicher, dass du ein aktives und gültiges VATSIM-Konto besitzt.</li>
+                <li><strong>Discord beitreten:</strong> Komme auf unseren <a href="https://discord.gg/ZUcU548fGs" target="_blank">Discord-Server</a>, um dich mit der Community auszutauschen.</li>
+                <li><strong>NewSky Registrierung:</strong> Besuche unser <a href="https://newsky.app/airline/ehz/info" target="_blank">NewSky Pilotenzentrum</a> und klicke auf den Beitritts-Button.</li>
+                <li><strong>Abheben:</strong> Sobald deine Anfrage freigegeben wurde, kannst du deine ersten Flüge unter unserer Kennung absolvieren!</li>
+            </ol>
+
+            <h2>Voraussetzungen</h2>
+            <p>
+                Wir erwarten einen respektvollen Umgangston, Freude am realistischen Online-Fliegen auf VATSIM und die Einhaltung der gängigen Luftverkehrsregeln.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="vatsim-section">
+            <span class="vatsim-label">Offizieller Partner im VATSIM-Netzwerk</span>
+            <div class="vatsim-badge">
+                <a href="https://www.vatsim.net" target="_blank"><img src="vatsim-logo.png" alt="VATSIM Logo"></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <p>&copy; 2026 European Horizons Virtual Airline. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 0.5rem;"><a href="datenschutz.html">Datenschutz</a> • <a href="impressum.html">Impressum</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
