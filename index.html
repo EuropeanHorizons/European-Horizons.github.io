@@ -43,17 +43,21 @@
         }
 
         header {
-            padding: 3rem 1rem 1.5rem;
+            padding: 0 0 1.5rem 0; /* Entfernt Innenabstand oben/links/rechts für volle Breite */
             text-align: center;
+            width: 100%;
         }
 
         .header-banner {
-            max-width: 650px;
-            width: 90%;
+            width: 100%;           /* Dehnt das Banner auf 100% der Bildschirmbreite */
+            max-width: 100%;       /* Keinerlei Breitenbegrenzung mehr */
             height: auto;
-            border-radius: 8px;
-            filter: drop-shadow(0 6px 25px rgba(0, 0, 0, 0.6));
-            transition: transform 0.3s ease;
+            max-height: 280px;     /* Verhindert, dass das Banner auf großen Monitoren zu hoch wird */
+            object-fit: cover;     /* Schneidet das Bild sauber zu, falls der Bildschirm sehr breit ist */
+            border-radius: 0;      /* Entfernt die abgerundeten Ecken für nahtlosen Übergang */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            display: block;
+        }
         }
 
         .header-banner:hover {
