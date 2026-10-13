@@ -88,11 +88,90 @@
         h1 { color: var(--livery-gold); font-size: 2.2rem; margin-bottom: 1rem; }
         p.intro { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
 
+        /* Haupt-Kategorien (Airbus Family / Boeing Jets) */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 2rem;
+        }
+
+        .category-box {
+            background: rgba(8, 17, 35, 0.95);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .category-box:hover {
+            border-color: var(--livery-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(197, 155, 39, 0.15);
+        }
+
+        .category-box i {
+            font-size: 2.5rem;
+            color: var(--livery-gold);
+            margin-bottom: 1rem;
+        }
+
+        .category-box h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .category-box .toggle-hint {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--livery-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Container für die jeweiligen Flugzeugmodelle (standardmäßig versteckt) */
+        .fleet-section-content {
+            display: none;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(197, 155, 39, 0.2);
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .fleet-section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: var(--livery-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .fleet-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 1.5rem;
         }
 
         .fleet-item {
@@ -134,6 +213,9 @@
             text-align: center;
             justify-content: center;
             align-items: center;
+            grid-column: 1 / -1; /* Nimmt die volle Breite ein */
+            max-width: 400px;
+            margin: 1rem auto 0;
         }
 
         .fleet-item.work-in-progress i {
@@ -206,113 +288,130 @@
         <div class="card">
             <h1>Unsere Flotte & Liveries</h1>
             <p class="intro">
-                European Horizons setzt auf eine vielseitige und moderne Flotte für Kurz-, Mittel- und Langstrecken. Hier findest du eine Übersicht aller unterstützten Flugzeugmuster im Fuhrpark unserer virtuellen Airline.
+                Wähle eine Kategorie aus, um die jeweiligen Flugzeugmuster, Entwickler und Beschreibungen unseres Fuhrparks einzusehen.
             </p>
 
-            <div class="fleet-grid">
-                
-                <!-- Airbus A319 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Airbus A319</h3>
-                        <span class="developer-tag">Fenix Simulations</span>
-                    </div>
-                    <p>Kompakt und extrem wendig. Perfekt geeignet für anspruchsvolle europäische Kurzstrecken und Anflüge auf kleinere Regionalflughäfen.</p>
+            <!-- Klickbare Haupt-Kategorien -->
+            <div class="category-grid">
+                <div class="category-box" onclick="toggleFleet('airbus')">
+                    <i class="fa-solid fa-plane-up"></i>
+                    <h2>Airbus Family</h2>
+                    <p>Moderne Single-Aisle- und Großraum-Jets aus Toulouse für den europäischen und interkontinentalen Betrieb.</p>
+                    <span class="toggle-hint"><i class="fa-solid fa-chevron-down"></i> Modelle anzeigen</span>
                 </div>
 
-                <!-- Airbus A320 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Airbus A320</h3>
-                        <span class="developer-tag">Fenix Simulations</span>
-                    </div>
-                    <p>Das Herzstück unserer europäischen Flotte. Der ultimative Allrounder für dichte Streckennetze und tägliche Linienflüge innerhalb Europas.</p>
+                <div class="category-box" onclick="toggleFleet('boeing')">
+                    <i class="fa-solid fa-plane"></i>
+                    <h2>Boeing Jets</h2>
+                    <p>Bewährte Arbeitstiere, effiziente Twinjets und weltweite Langstrecken-Giganten.</p>
+                    <span class="toggle-hint"><i class="fa-solid fa-chevron-down"></i> Modelle anzeigen</span>
                 </div>
+            </div>
 
-                <!-- Airbus A321 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Airbus A321</h3>
-                        <span class="developer-tag">Fenix Simulations</span>
+            <!-- AIRBUS SEKTION -->
+            <div id="airbus-section" class="fleet-section-content">
+                <h3 class="section-title"><i class="fa-solid fa-plane-up"></i> Airbus Flottenübersicht</h3>
+                <div class="fleet-grid">
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Airbus A319</h3>
+                            <span class="developer-tag">Fenix Simulations</span>
+                        </div>
+                        <p>Kompakt und extrem wendig. Perfekt geeignet für anspruchsvolle europäische Kurzstrecken und Anflüge auf kleinere Regionalflughäfen.</p>
                     </div>
-                    <p>Maximale Passagierkapazität auf der Mittelstrecke. Ideal für stark frequentierte Verbindungen zwischen den großen Hauptstadtdrehkreuzen.</p>
-                </div>
 
-                <!-- Boeing 737-700 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Boeing 737-700</h3>
-                        <span class="developer-tag">PMDG</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Airbus A320</h3>
+                            <span class="developer-tag">Fenix Simulations</span>
+                        </div>
+                        <p>Das Herzstück unserer europäischen Flotte. Der ultimative Allrounder für dichte Streckennetze und tägliche Linienflüge innerhalb Europas.</p>
                     </div>
-                    <p>Zuverlässiger Klassiker mit hoher Steigleistung. Bestens gerüstet für flexible Kurzstrecken und Routen mit geringerem Passagieraufkommen.</p>
-                </div>
 
-                <!-- Boeing 737-800 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Boeing 737-800</h3>
-                        <span class="developer-tag">PMDG</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Airbus A321</h3>
+                            <span class="developer-tag">Fenix Simulations</span>
+                        </div>
+                        <p>Maximale Passagierkapazität auf der Mittelstrecke. Ideal für stark frequentierte Verbindungen zwischen den großen Hauptstadtdrehkreuzen.</p>
                     </div>
-                    <p>Das verlässliche Arbeitstier für Kontinentalflüge. Bietet optimale Reichweite und höchste Effizienz im täglichen Flugbetrieb.</p>
-                </div>
 
-                <!-- Airbus A350-900 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Airbus A350-900</h3>
-                        <span class="developer-tag">iniBuilds</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Airbus A350-900</h3>
+                            <span class="developer-tag">iniBuilds</span>
+                        </div>
+                        <p>Hochmoderner Langstreckenjet mit herausragender Treibstoffeffizienz. Verbindet Europa mit Zielen auf der ganzen Welt.</p>
                     </div>
-                    <p>Hochmoderner Langstreckenjet mit herausragender Treibstoffeffizienz. Verbindet Europa mit Zielen auf der ganzen Welt.</p>
-                </div>
 
-                <!-- Boeing 777-200 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Boeing 777-200</h3>
-                        <span class="developer-tag">PMDG</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Airbus A380-800</h3>
+                            <span class="developer-tag">FlyByWire / iniBuilds</span>
+                        </div>
+                        <p>Der Gigant der Lüfte. Verbindet mit zwei durchgehenden Passagierdecks die größten Megacities der Erde mit höchster Kapazität.</p>
                     </div>
-                    <p>Bewährter Großraumjet für ausgedehnte Interkontinentalrouten. Bietet hohe Reichweite und erstklassigen Komfort für Langstreckenflüge.</p>
                 </div>
+            </div>
 
-                <!-- Boeing 777-300 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Boeing 777-300</h3>
-                        <span class="developer-tag">PMDG</span>
+            <!-- BOEING SEKTION -->
+            <div id="boeing-section" class="fleet-section-content">
+                <h3 class="section-title"><i class="fa-solid fa-plane"></i> Boeing Flottenübersicht</h3>
+                <div class="fleet-grid">
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Boeing 737-700</h3>
+                            <span class="developer-tag">PMDG</span>
+                        </div>
+                        <p>Zuverlässiger Klassiker mit hoher Steigleistung. Bestens gerüstet für flexible Kurzstrecken und Routen mit geringerem Passagieraufkommen.</p>
                     </div>
-                    <p>Unser Langstrecken-Flaggschiff mit gigantischer Kapazität für globale Routen und extrem hohe Passagierzahlen.</p>
-                </div>
 
-                <!-- Boeing 777-200F -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Boeing 777-200F</h3>
-                        <span class="developer-tag">PMDG</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Boeing 737-800</h3>
+                            <span class="developer-tag">PMDG</span>
+                        </div>
+                        <p>Das verlässliche Arbeitstier für Kontinentalflüge. Bietet optimale Reichweite und höchste Effizienz im täglichen Flugbetrieb.</p>
                     </div>
-                    <p>Der Frachtgigant in der Flotte. Für weltweiten Express-Frachtverkehr und schwere Luftfracht über Kontinente hinweg.</p>
-                </div>
 
-                <!-- Airbus A380-800 -->
-                <div class="fleet-item">
-                    <div class="fleet-header">
-                        <h3>Airbus A380-800</h3>
-                        <span class="developer-tag">FlyByWire / iniBuilds</span>
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Boeing 777-200</h3>
+                            <span class="developer-tag">PMDG</span>
+                        </div>
+                        <p>Bewährter Großraumjet für ausgedehnte Interkontinentalrouten. Bietet hohe Reichweite und erstklassigen Komfort für Langstreckenflüge.</p>
                     </div>
-                    <p>Der Gigant der Lüfte. Verbindet mit zwei durchgehenden Passagierdecks die größten Megacities der Erde mit höchster Kapazität.</p>
-                </div>
 
-                <!-- Weitere Modelle -->
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Boeing 777-300</h3>
+                            <span class="developer-tag">PMDG</span>
+                        </div>
+                        <p>Unser Langstrecken-Flaggschiff mit gigantischer Kapazität für globale Routen und extrem hohe Passagierzahlen.</p>
+                    </div>
+
+                    <div class="fleet-item">
+                        <div class="fleet-header">
+                            <h3>Boeing 777-200F</h3>
+                            <span class="developer-tag">PMDG</span>
+                        </div>
+                        <p>Der Frachtgigant in der Flotte. Für weltweiten Express-Frachtverkehr und schwere Luftfracht über Kontinente hinweg.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weitere Modelle Box -->
+            <div class="fleet-grid" style="margin-top: 2rem;">
                 <div class="fleet-item work-in-progress">
                     <i class="fa-solid fa-gears"></i>
                     <h3>Weitere Modelle in Arbeit</h3>
-                    <p>Wir erweitern unsere Flotte stetig um weitere Typen und Repaints.</p>
+                    <p>Wir erweitern unseren Fuhrpark stetig um weitere Typen und Repaints.</p>
                 </div>
-
             </div>
 
-            <!-- Hinweis unter den Boxen -->
+            <!-- Hinweis unter allen Kästchen -->
             <div class="download-notice">
-                <i class="fa-solid fa-cloud-arrow-down" style="margin-right: 8px;"></i> Liveries sind bald zum Download bereit!
+                <i class="fa-solid fa-cloud-arrow-down" style="margin-right: 8px;"></i> Bald zum Download bereit!
             </div>
 
         </div>
@@ -337,5 +436,26 @@
         </div>
     </footer>
 
+    <!-- JavaScript für die interaktiven Kategorien -->
+    <script>
+        function toggleFleet(type) {
+            const airbusSection = document.getElementById('airbus-section');
+            const boeingSection = document.getElementById('boeing-section');
+
+            if (type === 'airbus') {
+                airbusSection.classList.toggle('active');
+                boeingSection.classList.remove('active');
+                if (airbusSection.classList.contains('active')) {
+                    airbusSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else if (type === 'boeing') {
+                boeingSection.classList.toggle('active');
+                airbusSection.classList.remove('active');
+                if (boeingSection.classList.contains('active')) {
+                    boeingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
