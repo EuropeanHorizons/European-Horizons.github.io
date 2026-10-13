@@ -169,21 +169,19 @@
             box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
         }
 
-footer {
+        /* Footer komplett neu definiert, damit alles klickbar und sichtbar ist */
+        footer {
             padding: 3rem 1rem 2rem;
             text-align: center;
-            background: rgba(3, 6, 15, 0.95);
+            background: rgba(3, 6, 15, 0.98);
             border-top: 1px solid rgba(197, 155, 39, 0.2);
             margin-top: auto;
-            position: relative;     /* Macht den Footer zu einer eigenen Ebene */
-            z-index: 999;           /* Stellt sicher, dass der Footer ÜBER allen anderen Elementen liegt */
-            pointer-events: auto;   /* Garantiert die Klickbarkeit aller Links */
+            position: relative;
+            z-index: 999;
         }
 
         .vatsim-section {
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1000;
         }
 
         .vatsim-label {
@@ -195,40 +193,37 @@ footer {
             display: block;
         }
 
+        .vatsim-badge a {
+            display: inline-block;
+        }
+
         .vatsim-badge img {
-            height: 45px;
+            height: 40px;
             width: auto;
-            opacity: 0.9;
-            transition: all 0.2s ease;
-            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.1));
+            opacity: 0.95;
+            transition: transform 0.2s ease;
         }
 
         .vatsim-badge img:hover {
-            opacity: 1;
             transform: scale(1.05);
-            filter: drop-shadow(0 4px 12px rgba(197, 155, 39, 0.3));
         }
 
         .footer-links {
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            position: relative;
-            z-index: 1001;          /* Links liegen ganz oben auf dem Footer */
+            margin-top: 1rem;
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--livery-gold);
             text-decoration: underline;
-            margin: 0 10px;
-            display: inline-block;  /* Macht die Klickfläche stabil */
-            padding: 4px 8px;       /* Vergrößert den klickbaren Bereich */
+            margin: 0 12px;
+            font-weight: 600;
             cursor: pointer;
-            transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--livery-gold);
-        }
+            color: var(--livery-gold-hover);
         }
     </style>
 </head>
@@ -260,12 +255,12 @@ footer {
             </p>
 
             <div class="btn-group">
-                <!-- NewSky Link direkt integriert -->
+                <!-- NewSky Link -->
                 <a href="https://newsky.app/airline/ehz/info" target="_blank" class="btn btn-newsky">
                     <i class="fa-solid fa-plane"></i> NewSky Pilotenzentrum
                 </a>
 
-                <!-- Discord-Link -->
+                <!-- Discord Link -->
                 <a href="https://discord.gg/ZUcU548fGs" target="_blank" class="btn btn-discord">
                     <i class="fa-brands fa-discord"></i> Discord Community
                 </a>
@@ -274,12 +269,12 @@ footer {
     </main>
 
     <footer>
-     <div class="vatsim-section">
-            <span class="vatsim-label">Bald auch offiziell als Partner im VATSIM-Netzwerk</span>
+        <div class="vatsim-section">
+            <span class="vatsim-label">Offizieller Partner im VATSIM-Netzwerk</span>
             <div class="vatsim-badge">
                 <a href="https://www.vatsim.net" target="_blank" title="VATSIM.net besuchen">
-                    <!-- Direktes SVG-Logo von Wikimedia (lädt immer garantiert) -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/VATSIM_Logo.svg" alt="VATSIM Logo" style="height: 45px; width: auto;">
+                    <!-- Stabiler CDN-Link für das VATSIM-Logo -->
+                    <img src="https://assets.vatsim.net/logos/vatsim-logo-white.png" alt="VATSIM" onerror="this.src='https://community.vatsim.net/uploads/default/original/1X/362a2d77a87e0259e8f6e2b5358055a40a83a005.png';">
                 </a>
             </div>
         </div>
@@ -287,8 +282,8 @@ footer {
         <div class="footer-links">
             <p>&copy; 2026 European Horizons Virtual Airline. Alle Rechte vorbehalten.</p>
             <p style="margin-top: 0.5rem;">
-                <a href="#datenschutz">Datenschutz</a> • 
-                <a href="#impressum">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a> • 
+                <a href="impressum.html">Impressum</a>
             </p>
         </div>
     </footer>
