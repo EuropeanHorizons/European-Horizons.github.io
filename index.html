@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Horizons Virtual Airline | Offizieller VATSIM Partner</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Farbpalette exakt aus der Flugzeuglackierung */
+            --livery-blue: #081123;     /* Deep European Blue */
+            --livery-gold: #c59b27;     /* Gold Accent */
+            --livery-gold-hover: #dcb33f;
+            --discord-color: #5865F2;
+            --discord-hover: #4752C4;
+            --bg: #03060f;             /* Dunkler Hintergrund passend zum Abendlicht */
+            --card-bg: rgba(8, 17, 35, 0.85); /* Livery-Blau mit Glassmorphism */
+            --border: rgba(197, 155, 39, 0.3); /* Dezenter Goldrand */
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(8, 17, 35, 0.9) 0%, transparent 65%),
+                radial-gradient(circle at 85% 90%, rgba(197, 155, 39, 0.05) 0%, transparent 50%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 3rem 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .header-banner {
+            max-width: 650px;
+            width: 90%;
+            height: auto;
+            border-radius: 8px;
+            filter: drop-shadow(0 6px 25px rgba(0, 0, 0, 0.6));
+            transition: transform 0.3s ease;
+        }
+
+        .header-banner:hover {
+            transform: scale(1.02);
+        }
+
+        p.subtitle {
+            color: var(--livery-gold);
+            font-size: 1.15rem;
+            margin-top: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roundel-logo {
+            width: 210px;
+            height:
