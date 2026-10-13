@@ -16,7 +16,7 @@
             --discord-color: #5865F2;
             --discord-hover: #4752C4;
             --bg: #03060f;
-            --card-bg: rgba(8, 17, 35, 0.85);
+            --card-bg: rgba(8, 17, 35, 0.88);
             --border: rgba(197, 155, 39, 0.3);
             --text: #f8fafc;
             --text-muted: #94a3b8;
@@ -43,41 +43,37 @@
         }
 
         header {
-            padding: 0 0 1.5rem 0; /* Entfernt Innenabstand oben/links/rechts für volle Breite */
+            padding: 0 0 1.5rem 0;
             text-align: center;
             width: 100%;
         }
 
         .header-banner {
-            width: 100%;           /* Dehnt das Banner auf 100% der Bildschirmbreite */
-            max-width: 100%;       /* Keinerlei Breitenbegrenzung mehr */
+            width: 100%;
+            max-width: 100%;
             height: auto;
-            max-height: 280px;     /* Verhindert, dass das Banner auf großen Monitoren zu hoch wird */
-            object-fit: cover;     /* Schneidet das Bild sauber zu, falls der Bildschirm sehr breit ist */
-            border-radius: 0;      /* Entfernt die abgerundeten Ecken für nahtlosen Übergang */
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             display: block;
-        }
-        }
-
-        .header-banner:hover {
-            transform: scale(1.02);
         }
 
         p.subtitle {
             color: var(--livery-gold);
             font-size: 1.15rem;
-            margin-top: 0.75rem;
+            margin-top: 1.25rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             font-weight: 600;
+            padding: 0 1rem;
         }
 
         main {
-            max-width: 850px;
+            width: 92%;               /* Fast volle Bildschirmbreite mit kleinen Seitenrändern */
+            max-width: 1400px;        /* Maximale Grenze, damit es auf riesigen Bildschirmen lesbar bleibt */
             margin: 0 auto;
             padding: 1.5rem 1rem 3rem;
-            width: 100%;
         }
 
         .card {
@@ -85,12 +81,13 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
-            padding: 3rem 2rem;
+            padding: 3.5rem 2.5rem;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            width: 100%;
         }
 
         .roundel-logo {
@@ -110,19 +107,19 @@
         }
 
         .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--text);
             font-weight: 700;
         }
 
         .card p {
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            max-width: 650px;
+            margin-bottom: 1.5rem;
+            max-width: 1100px;       /* Lässt den Text auf voller Breite harmonisch fließen */
             margin-left: auto;
             margin-right: auto;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         .btn-group {
@@ -130,6 +127,7 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .btn {
@@ -235,19 +233,24 @@
             <img src="ChatGPT Image 17. Sept. 2026, 14_11_25.png" alt="European Horizons Roundel Logo" class="roundel-logo">
             
             <h2>Willkommen an Bord</h2>
-            <!-- HIER KANNST DU DEINEN TEXT ANPASSEN -->
+            
+            <!-- Deutscher Absatz -->
             <p>
-               
-                Unser Ziel ist es, ein realistisches und zugleich unterhaltsames virtuelles Flugerlebnis zu bieten, das Piloten durch spannende Routen, unvergessliche Reisen und einen starken Gemeinschaftsgeist miteinander verbindet.
+                Unser Ziel ist es, ein realistisches und zugleich unterhaltsames virtuelles Flugerlebnis zu bieten, 
+                das Piloten durch spannende Routen, unvergessliche Reisen und einen starken Gemeinschaftsgeist miteinander verbindet. 
                 Deine Reise beginnt hier – entdecke mit uns neue Horizonte.
+            </p>
 
-                Welcome to European Horizons, a new virtual airline created for aviation enthusiasts who share a passion for flying. Our goal is to offer a realistic yet enjoyable virtual aviation experience, bringing pilots together through exciting routes, memorable journeys, and a strong community spirit.
-                Your journey starts here — discover new horizons with us.
+            <!-- Englischer Absatz -->
+            <p>
+                Welcome to European Horizons, a new virtual airline created for aviation enthusiasts who share a passion for flying. 
+                Our goal is to offer a realistic yet enjoyable virtual aviation experience, bringing pilots together through exciting routes, 
+                memorable journeys, and a strong community spirit. Your journey starts here — discover new horizons with us.
             </p>
 
             <div class="btn-group">
                 <!-- Link zu NewSky -->
-                <a href="https://newsky.app/airline/ehz/info" target="_blank" class="btn btn-newsky">
+                <a href="https://newsky.app/airline/deine-airline-id" target="_blank" class="btn btn-newsky">
                     <i class="fa-solid fa-plane"></i> NewSky Pilotenzentrum
                 </a>
 
@@ -264,7 +267,6 @@
             <span class="vatsim-label">Offizieller Partner im VATSIM-Netzwerk</span>
             <div class="vatsim-badge">
                 <a href="https://www.vatsim.net" target="_blank" title="VATSIM.net besuchen">
-                    <!-- Zuverlässige VATSIM Logo-URL -->
                     <img src="https://community.vatsim.net/assets/vatsim_logo.png" alt="VATSIM Logo" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/vatsimnetwork/brand-assets/main/logos/vatsim_logo_white.png';">
                 </a>
             </div>
