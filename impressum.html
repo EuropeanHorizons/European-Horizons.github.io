@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | European Horizons Virtual Airline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --livery-blue: #081123;
+            --livery-gold: #c59b27;
+            --livery-gold-hover: #dcb33f;
+            --bg: #03060f;
+            --card-bg: rgba(8, 17, 35, 0.88);
+            --border: rgba(197, 155, 39, 0.3);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(8, 17, 35, 0.9) 0%, transparent 65%),
+                radial-gradient(circle at 85% 90%, rgba(197, 155, 39, 0.05) 0%, transparent 50%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            padding: 0 0 1.5rem 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .header-banner {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            display: block;
+        }
+
+        main {
+            width: 92%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        h1 {
+            color: var(--livery-gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        a {
+            color: var(--livery-gold);
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: var(--livery-gold-hover);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--livery-gold), var(--livery-gold-hover));
+            color: var(--livery-blue);
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 2rem 1rem;
+            text-align: center;
+            background: rgba(3, 6, 15, 0.9);
+            border-top: 1px solid rgba(197, 155, 39, 0.1);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="WebsiteBanner.png" alt="European Horizons Banner" class="header-banner">
+        </a>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>Impressum</h1>
+            <p><strong>European Horizons Virtual Airline</strong></p>
+            <p>
+                Diese Webseite ist das Angebot einer rein privaten, nicht-kommerziellen Interessengemeinschaft für Flugsimulationen im VATSIM-Netzwerk. 
+                Es werden keinerlei kommerzielle Absichten verfolgt und keine realen Flugdienstleistungen angeboten.
+            </p>
+            
+            <h2>Kontakt</h2>
+            <p>
+                Discord: <a href="https://discord.gg/ZUcU548fGs" target="_blank">European Horizons Community Server</a><br>
+                NewSky: <a href="https://newsky.app/airline/ehz/info" target="_blank">EHZ Airline Profile</a>
+            </p>
+
+            <h2>Haftungsausschluss</h2>
+            <p>
+                Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. 
+                Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+            </p>
+
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Zurück zur Startseite</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 European Horizons Virtual Airline. Alle Rechte vorbehalten.</p>
+    </footer>
+
+</body>
+</html>
