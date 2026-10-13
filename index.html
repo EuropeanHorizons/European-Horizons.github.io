@@ -10,15 +10,14 @@
     
     <style>
         :root {
-            /* Farbpalette exakt aus der Flugzeuglackierung */
-            --livery-blue: #081123;     /* Deep European Blue */
-            --livery-gold: #c59b27;     /* Gold Accent */
+            --livery-blue: #081123;
+            --livery-gold: #c59b27;
             --livery-gold-hover: #dcb33f;
             --discord-color: #5865F2;
             --discord-hover: #4752C4;
-            --bg: #03060f;             /* Dunkler Hintergrund passend zum Abendlicht */
-            --card-bg: rgba(8, 17, 35, 0.85); /* Livery-Blau mit Glassmorphism */
-            --border: rgba(197, 155, 39, 0.3); /* Dezenter Goldrand */
+            --bg: #03060f;
+            --card-bg: rgba(8, 17, 35, 0.85);
+            --border: rgba(197, 155, 39, 0.3);
             --text: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -92,4 +91,183 @@
 
         .roundel-logo {
             width: 210px;
-            height:
+            height: 210px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(197, 155, 39, 0.25);
+            border: 2px solid var(--livery-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .roundel-logo:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 155, 39, 0.4);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.05rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-newsky {
+            background: linear-gradient(135deg, var(--livery-gold), var(--livery-gold-hover));
+            color: var(--livery-blue);
+            box-shadow: 0 4px 15px rgba(197, 155, 39, 0.3);
+            font-weight: 700;
+        }
+
+        .btn-newsky:hover {
+            background: linear-gradient(135deg, var(--livery-gold-hover), #ecd163);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(197, 155, 39, 0.5);
+        }
+
+        .btn-discord {
+            background-color: var(--discord-color);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        .btn-discord:hover {
+            background-color: var(--discord-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+        }
+
+        footer {
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            background: rgba(3, 6, 15, 0.9);
+            border-top: 1px solid rgba(197, 155, 39, 0.1);
+            margin-top: auto;
+        }
+
+        .vatsim-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .vatsim-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .vatsim-badge img {
+            height: 50px;
+            width: auto;
+            opacity: 0.9;
+            transition: all 0.2s ease;
+            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.1));
+        }
+
+        .vatsim-badge img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(197, 155, 39, 0.3));
+        }
+
+        .footer-links {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: underline;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--livery-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="WebsiteBanner.png" alt="European Horizons Banner" class="header-banner">
+        <p class="subtitle">Virtual Airline • People | Places | A Higher Tomorrow</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <img src="ChatGPT Image 17. Sept. 2026, 14_11_25.png" alt="European Horizons Roundel Logo" class="roundel-logo">
+            
+            <h2>Willkommen an Bord</h2>
+            <p>
+                European Horizons bietet ein realistisches und modernes Flugerlebnis im VATSIM-Netzwerk. 
+                Sämtliche Flüge, Flottendaten und Logbücher verwalten wir exklusiv über das NewSky-System. 
+                Tritt auch unserer Community bei!
+            </p>
+
+            <div class="btn-group">
+                <!-- HIER DEINEN NEWKY-LINK ANPASSEN -->
+                <a href="https://newsky.app/airline/deine-airline-id" target="_blank" class="btn btn-newsky">
+                    <i class="fa-solid fa-plane"></i> NewSky Pilotenzentrum
+                </a>
+
+                <a href="https://discord.gg/ZUcU548fGs" target="_blank" class="btn btn-discord">
+                    <i class="fa-brands fa-discord"></i> Discord Community
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="vatsim-section">
+            <span class="vatsim-label">Offizieller Partner im VATSIM-Netzwerk</span>
+            <div class="vatsim-badge">
+                <a href="https://www.vatsim.net" target="_blank" title="VATSIM.net besuchen">
+                    <img src="https://images.vatsim.net/vatsim_logo.png" alt="VATSIM Official Logo">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <p>&copy; 2026 European Horizons Virtual Airline. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="#datenschutz">Datenschutz</a> • 
+                <a href="#impressum">Impressum</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
