@@ -169,16 +169,21 @@
             box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
         }
 
-        footer {
+footer {
             padding: 3rem 1rem 2rem;
             text-align: center;
-            background: rgba(3, 6, 15, 0.9);
-            border-top: 1px solid rgba(197, 155, 39, 0.1);
+            background: rgba(3, 6, 15, 0.95);
+            border-top: 1px solid rgba(197, 155, 39, 0.2);
             margin-top: auto;
+            position: relative;     /* Macht den Footer zu einer eigenen Ebene */
+            z-index: 999;           /* Stellt sicher, dass der Footer ÜBER allen anderen Elementen liegt */
+            pointer-events: auto;   /* Garantiert die Klickbarkeit aller Links */
         }
 
         .vatsim-section {
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1000;
         }
 
         .vatsim-label {
@@ -207,17 +212,23 @@
         .footer-links {
             font-size: 0.875rem;
             color: var(--text-muted);
+            position: relative;
+            z-index: 1001;          /* Links liegen ganz oben auf dem Footer */
         }
 
         .footer-links a {
             color: var(--text-muted);
             text-decoration: underline;
             margin: 0 10px;
+            display: inline-block;  /* Macht die Klickfläche stabil */
+            padding: 4px 8px;       /* Vergrößert den klickbaren Bereich */
+            cursor: pointer;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
             color: var(--livery-gold);
+        }
         }
     </style>
 </head>
