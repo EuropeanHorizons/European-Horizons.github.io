@@ -42,6 +42,65 @@
             justify-content: space-between;
         }
 
+        /* Navigationsleiste / Menüband */
+        .navbar {
+            background: rgba(8, 17, 35, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--livery-gold);
+            object-fit: cover;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--livery-gold);
+            background: rgba(197, 155, 39, 0.1);
+        }
+
         header {
             padding: 0 0 1.5rem 0;
             text-align: center;
@@ -169,7 +228,6 @@
             box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
         }
 
-        /* Footer komplett neu definiert, damit alles klickbar und sichtbar ist */
         footer {
             padding: 3rem 1rem 2rem;
             text-align: center;
@@ -198,7 +256,7 @@
         }
 
         .vatsim-badge img {
-            height: 40px;
+            height: 45px;
             width: auto;
             opacity: 0.95;
             transition: transform 0.2s ease;
@@ -225,9 +283,44 @@
         .footer-links a:hover {
             color: var(--livery-gold-hover);
         }
+
+        /* Responsive Menüanpassung für Smartphones */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 4px 8px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Menüband / Hauptnavigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="ChatGPT Image 17. Sept. 2026, 14_11_25.png" alt="EHZ Logo">
+                <span>European Horizons</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Startseite</a></li>
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="fleet.html">Flotte & Liveries</a></li>
+                <li><a href="join.html">Pilot Guide</a></li>
+                <li><a href="https://newsky.app/airline/ehz/info" target="_blank">NewSky</a></li>
+                <li><a href="https://discord.gg/ZUcU548fGs" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <header>
         <img src="WebsiteBanner.png" alt="European Horizons Banner" class="header-banner">
@@ -270,11 +363,11 @@
 
     <footer>
         <div class="vatsim-section">
-            <span class="vatsim-label">Bald auch Partner im VATSIM-Netzwerk</span>
+            <span class="vatsim-label">Offizieller Partner im VATSIM-Netzwerk</span>
             <div class="vatsim-badge">
                 <a href="https://www.vatsim.net" target="_blank" title="VATSIM.net besuchen">
-                    <!-- Lädt das Logo direkt aus deinem eigenen Repository -->
-                    <img src="vatsim-logo.png" alt="VATSIM Logo" style="height: 45px; width: auto;">
+                    <!-- Lädt die lokale Grafik vatsim-logo.png aus dem Repository -->
+                    <img src="vatsim-logo.png" alt="VATSIM Logo">
                 </a>
             </div>
         </div>
@@ -284,9 +377,6 @@
             <p style="margin-top: 0.5rem;">
                 <a href="datenschutz.html">Datenschutz</a> • 
                 <a href="impressum.html">Impressum</a>
-            </p>
-        </div>
-    </footer>
             </p>
         </div>
     </footer>
