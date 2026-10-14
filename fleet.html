@@ -140,7 +140,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* Container für die jeweiligen Flugzeugmodelle (standardmäßig versteckt) */
+        /* Container für die jeweiligen Flugzeugmodelle */
         .fleet-section-content {
             display: none;
             margin-top: 2rem;
@@ -174,6 +174,7 @@
             gap: 20px;
         }
 
+        /* Jedes Flugzeug-Kästchen ist jetzt ein anklickbarer Link */
         .fleet-item {
             background: rgba(3, 6, 15, 0.7);
             border: 1px solid var(--border);
@@ -182,19 +183,39 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .fleet-item:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             border-color: var(--livery-gold);
+            background: rgba(8, 17, 35, 0.9);
+            box-shadow: 0 10px 25px rgba(197, 155, 39, 0.2);
         }
 
         .fleet-header {
             margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .fleet-item h3 { color: var(--text); font-size: 1.25rem; font-weight: 700; }
+        
+        .download-icon {
+            color: var(--livery-gold);
+            font-size: 1.1rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .fleet-item:hover .download-icon {
+            opacity: 1;
+        }
+
         .developer-tag { 
             display: inline-block; 
             color: var(--livery-gold); 
@@ -207,15 +228,22 @@
 
         .fleet-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
+        /* Ausnahme für "Weitere Modelle in Arbeit" (kein Link) */
         .fleet-item.work-in-progress {
             background: rgba(197, 155, 39, 0.05);
             border: 1px dashed var(--livery-gold);
             text-align: center;
             justify-content: center;
             align-items: center;
-            grid-column: 1 / -1; /* Nimmt die volle Breite ein */
+            grid-column: 1 / -1;
             max-width: 400px;
             margin: 1rem auto 0;
+            cursor: default;
+        }
+
+        .fleet-item.work-in-progress:hover {
+            transform: none;
+            box-shadow: none;
         }
 
         .fleet-item.work-in-progress i {
@@ -288,7 +316,7 @@
         <div class="card">
             <h1>Unsere Flotte & Liveries</h1>
             <p class="intro">
-                Wähle eine Kategorie aus, um die jeweiligen Flugzeugmuster, Entwickler und Beschreibungen unseres Fuhrparks einzusehen.
+                Wähle eine Kategorie aus, um die jeweiligen Flugzeugmuster einzusehen. Mit einem Klick auf das gewünschte Modell gelangst du direkt zum Download auf Flightsim.to.
             </p>
 
             <!-- Klickbare Haupt-Kategorien -->
@@ -312,45 +340,67 @@
             <div id="airbus-section" class="fleet-section-content">
                 <h3 class="section-title"><i class="fa-solid fa-plane-up"></i> Airbus Flottenübersicht</h3>
                 <div class="fleet-grid">
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Airbus A319</h3>
+                    
+                    <!-- Airbus A319 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Airbus A319</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">Fenix Simulations</span>
+                            <p style="margin-top: 0.5rem;">Kompakt und extrem wendig. Perfekt geeignet für anspruchsvolle europäische Kurzstrecken und Anflüge auf kleinere Regionalflughäfen.</p>
                         </div>
-                        <p>Kompakt und extrem wendig. Perfekt geeignet für anspruchsvolle europäische Kurzstrecken und Anflüge auf kleinere Regionalflughäfen.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Airbus A320</h3>
+                    <!-- Airbus A320 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Airbus A320</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">Fenix Simulations</span>
+                            <p style="margin-top: 0.5rem;">Das Herzstück unserer europäischen Flotte. Der ultimative Allrounder für dichte Streckennetze und tägliche Linienflüge innerhalb Europas.</p>
                         </div>
-                        <p>Das Herzstück unserer europäischen Flotte. Der ultimative Allrounder für dichte Streckennetze und tägliche Linienflüge innerhalb Europas.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Airbus A321</h3>
+                    <!-- Airbus A321 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Airbus A321</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">Fenix Simulations</span>
+                            <p style="margin-top: 0.5rem;">Maximale Passagierkapazität auf der Mittelstrecke. Ideal für stark frequentierte Verbindungen zwischen den großen Hauptstadtdrehkreuzen.</p>
                         </div>
-                        <p>Maximale Passagierkapazität auf der Mittelstrecke. Ideal für stark frequentierte Verbindungen zwischen den großen Hauptstadtdrehkreuzen.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Airbus A350-900</h3>
+                    <!-- Airbus A350-900 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Airbus A350-900</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">iniBuilds</span>
+                            <p style="margin-top: 0.5rem;">Hochmoderner Langstreckenjet mit herausragender Treibstoffeffizienz. Verbindet Europa mit Zielen auf der ganzen Welt.</p>
                         </div>
-                        <p>Hochmoderner Langstreckenjet mit herausragender Treibstoffeffizienz. Verbindet Europa mit Zielen auf der ganzen Welt.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Airbus A380-800</h3>
+                    <!-- Airbus A380-800 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Airbus A380-800</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">FlyByWire / iniBuilds</span>
+                            <p style="margin-top: 0.5rem;">Der Gigant der Lüfte. Verbindet mit zwei durchgehenden Passagierdecks die größten Megacities der Erde mit höchster Kapazität.</p>
                         </div>
-                        <p>Der Gigant der Lüfte. Verbindet mit zwei durchgehenden Passagierdecks die größten Megacities der Erde mit höchster Kapazität.</p>
-                    </div>
+                    </a>
+
                 </div>
             </div>
 
@@ -358,54 +408,78 @@
             <div id="boeing-section" class="fleet-section-content">
                 <h3 class="section-title"><i class="fa-solid fa-plane"></i> Boeing Flottenübersicht</h3>
                 <div class="fleet-grid">
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Boeing 737-700</h3>
+                    
+                    <!-- Boeing 737-700 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Boeing 737-700</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">PMDG</span>
+                            <p style="margin-top: 0.5rem;">Zuverlässiger Klassiker mit hoher Steigleistung. Bestens gerüstet für flexible Kurzstrecken und Routen mit geringerem Passagieraufkommen.</p>
                         </div>
-                        <p>Zuverlässiger Klassiker mit hoher Steigleistung. Bestens gerüstet für flexible Kurzstrecken und Routen mit geringerem Passagieraufkommen.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Boeing 737-800</h3>
+                    <!-- Boeing 737-800 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Boeing 737-800</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">PMDG</span>
+                            <p style="margin-top: 0.5rem;">Das verlässliche Arbeitstier für Kontinentalflüge. Bietet optimale Reichweite und höchste Effizienz im täglichen Flugbetrieb.</p>
                         </div>
-                        <p>Das verlässliche Arbeitstier für Kontinentalflüge. Bietet optimale Reichweite und höchste Effizienz im täglichen Flugbetrieb.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Boeing 777-200</h3>
+                    <!-- Boeing 777-200 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Boeing 777-200</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">PMDG</span>
+                            <p style="margin-top: 0.5rem;">Bewährter Großraumjet für ausgedehnte Interkontinentalrouten. Bietet hohe Reichweite und erstklassigen Komfort für Langstreckenflüge.</p>
                         </div>
-                        <p>Bewährter Großraumjet für ausgedehnte Interkontinentalrouten. Bietet hohe Reichweite und erstklassigen Komfort für Langstreckenflüge.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Boeing 777-300</h3>
+                    <!-- Boeing 777-300 -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Boeing 777-300</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">PMDG</span>
+                            <p style="margin-top: 0.5rem;">Unser Langstrecken-Flaggschiff mit gigantischer Kapazität für globale Routen und extrem hohe Passagierzahlen.</p>
                         </div>
-                        <p>Unser Langstrecken-Flaggschiff mit gigantischer Kapazität für globale Routen und extrem hohe Passagierzahlen.</p>
-                    </div>
+                    </a>
 
-                    <div class="fleet-item">
-                        <div class="fleet-header">
-                            <h3>Boeing 777-200F</h3>
+                    <!-- Boeing 777-200F -->
+                    <a href="https://flightsim.to/de/DEIN-LINK-HIER" target="_blank" class="fleet-item">
+                        <div>
+                            <div class="fleet-header">
+                                <h3>Boeing 777-200F</h3>
+                                <i class="fa-solid fa-cloud-arrow-down download-icon"></i>
+                            </div>
                             <span class="developer-tag">PMDG</span>
+                            <p style="margin-top: 0.5rem;">Der Frachtgigant in der Flotte. Für weltweiten Express-Frachtverkehr und schwere Luftfracht über Kontinente hinweg.</p>
                         </div>
-                        <p>Der Frachtgigant in der Flotte. Für weltweiten Express-Frachtverkehr und schwere Luftfracht über Kontinente hinweg.</p>
-                    </div>
+                    </a>
+
                 </div>
             </div>
 
             <!-- Weitere Modelle Box -->
             <div class="fleet-grid" style="margin-top: 2rem;">
                 <div class="fleet-item work-in-progress">
-                    <i class="fa-solid fa-gears"></i>
-                    <h3>Weitere Modelle in Arbeit</h3>
-                    <p>Wir erweitern unseren Fuhrpark stetig um weitere Typen und Repaints.</p>
+                    <div>
+                        <i class="fa-solid fa-gears"></i>
+                        <h3>Weitere Modelle in Arbeit</h3>
+                        <p style="margin-top: 0.5rem;">Wir erweitern unseren Fuhrpark stetig um weitere Typen und Repaints.</p>
+                    </div>
                 </div>
             </div>
 
